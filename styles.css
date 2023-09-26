@@ -403,7 +403,17 @@ footer{
 
 @media (max-width: 524px) {
   .bar{
-    font-size: 14px;
+    font-size: 12px;
+  }
+  .footer-bars{
+    width: 85vw;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 370px) {
+  .bar{
+    font-size: 10px;
   }
 }
 
