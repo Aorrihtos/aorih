@@ -1,0 +1,11 @@
+---
+import type { Technology } from '@/domain/technology';
+
+type Props = { technologies: Technology[] };
+
+const { technologies } = Astro.props;
+---
+
+<div class="tec-icons">
+  {technologies.map((technology) => <img src={technology.icon} alt={technology.name} />)}
+</div>

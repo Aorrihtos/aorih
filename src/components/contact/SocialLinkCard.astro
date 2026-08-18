@@ -1,0 +1,14 @@
+---
+import type { SocialLink } from '@/domain/social-link';
+
+type Props = { link: SocialLink };
+
+const { link } = Astro.props;
+---
+
+<a href={link.url} target="_blank" rel="noopener noreferrer">
+  <div class="container-mid">
+    <h2>{link.name}</h2>
+    <img src={link.icon} alt={link.name} />
+  </div>
+</a>

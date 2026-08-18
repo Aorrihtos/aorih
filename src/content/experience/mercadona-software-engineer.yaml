@@ -1,0 +1,18 @@
+company: Mercadona
+companyLogo: /assets/mercaona.png
+position: Software Engineer
+employmentType: Full time
+startDate: 2021-08-01
+endDate: 2023-06-01
+skills:
+  - Spring Boot
+  - Google Cloud
+  - Kibana
+  - Grafana
+  - Kubernetes
+  - Java
+  - Oracle SQL
+  - PL/SQL
+  - SQL
+  - Swagger
+  - API Development

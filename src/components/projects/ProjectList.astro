@@ -1,0 +1,10 @@
+---
+import type { Project } from '@/domain/project';
+import ProjectCard from './ProjectCard.astro';
+
+type Props = { projects: Project[] };
+
+const { projects } = Astro.props;
+---
+
+{projects.map((project, index) => <ProjectCard project={project} isFirst={index === 0} />)}

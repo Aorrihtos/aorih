@@ -1,0 +1,13 @@
+company: Mercadona
+companyLogo: /assets/mercaona.png
+position: Software Engineer (Practices)
+employmentType: Partial
+startDate: 2021-04-01
+endDate: 2021-08-01
+skills:
+  - C++
+  - Confluence
+  - Linux
+  - Bash Programming
+  - Jira
+  - Gitlab

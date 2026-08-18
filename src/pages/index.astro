@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProfileCard from '@/components/home/ProfileCard.astro';
+import ExperienceList from '@/components/experience/ExperienceList.astro';
+import EducationList from '@/components/education/EducationList.astro';
+import TechnologyIcons from '@/components/technologies/TechnologyIcons.astro';
+import LanguageList from '@/components/languages/LanguageList.astro';
+import {
+  educationRepository,
+  experienceRepository,
+  languageRepository,
+  technologyRepository,
+} from '@/repositories';
+
+const [experiences, education, technologies, languages] = await Promise.all([
+  experienceRepository.getAll(),
+  educationRepository.getAll(),
+  technologyRepository.getAll(),
+  languageRepository.getAll(),
+]);
+---
+
+<BaseLayout
+  title="DATA"
+  description="Sergio Ferrer — software engineer and web developer based in Valencia. Background, education, technologies and languages."
+>
+  <div class="container">
+    <button class="hidden" id="arrow-up" aria-label="Previous section">
+      <img src="/assets/icons/arrow-up.png" class="arrow" alt="" />
+    </button>
+
+    <ProfileCard />
+
+    <div class="data-container hidden" data-slide>
+      <div class="container-mid no-mtop">
+        <h2>Background</h2>
+        <ExperienceList experiences={experiences} />
+      </div>
+    </div>
+
+    <div class="data-container hidden no-mtop" data-slide>
+      <div class="container-mid basis-100">
+        <h2>Education</h2>
+        <EducationList entries={education} />
+      </div>
+      <div class="container-mid no-padding">
+        <h2>Tecnologies</h2>
+        <TechnologyIcons technologies={technologies} />
+      </div>
+      <div class="container-mid no-padding">
+        <h2>Languages</h2>
+        <LanguageList languages={languages} />
+      </div>
+    </div>
+  </div>
+
+  <button id="arrow-down" slot="footer-lead" aria-label="Next section">
+    <img src="/assets/icons/down-arrow.png" class="arrow" alt="" />
+  </button>
+
+  <script>
+    import { initDataSlides } from '@/lib/data-slides';
+
+    initDataSlides();
+  </script>
+</BaseLayout>

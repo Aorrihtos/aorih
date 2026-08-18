@@ -1,0 +1,16 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ProjectList from '@/components/projects/ProjectList.astro';
+import { projectRepository } from '@/repositories';
+
+const projects = await projectRepository.getAll();
+---
+
+<BaseLayout
+  title="PROJECTS"
+  description="Projects and side ventures by Sergio Ferrer, including FEEP and the Aorih YouTube channel."
+>
+  <div class="container">
+    <ProjectList projects={projects} />
+  </div>
+</BaseLayout>

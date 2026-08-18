@@ -1,0 +1,19 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import SocialLinkList from '@/components/contact/SocialLinkList.astro';
+import { siteSettingsRepository, socialLinkRepository } from '@/repositories';
+
+const [links, settings] = await Promise.all([
+  socialLinkRepository.getAll(),
+  siteSettingsRepository.get(),
+]);
+---
+
+<BaseLayout title="CONTACT" description="Ways to reach Sergio Ferrer: Instagram, Twitter, LinkedIn and email.">
+  <div class="container">
+    <SocialLinkList links={links} />
+    <p class="contact-email">
+      You can also contact me at <a href={`mailto:${settings.email}`}>'{settings.email}'</a>
+    </p>
+  </div>
+</BaseLayout>

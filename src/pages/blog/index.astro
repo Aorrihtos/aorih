@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import BlogList from '@/components/blog/BlogList.astro';
+import { blogRepository } from '@/repositories';
+
+const posts = await blogRepository.getAll();
+---
+
+<BaseLayout title="BLOG" description="Notes and articles written by Sergio Ferrer.">
+  <div class="container">
+    <BlogList posts={posts} />
+  </div>
+</BaseLayout>

@@ -1,0 +1,10 @@
+---
+import type { Education } from '@/domain/education';
+import EducationItem from './EducationItem.astro';
+
+type Props = { entries: Education[] };
+
+const { entries } = Astro.props;
+---
+
+{entries.map((education) => <EducationItem education={education} />)}

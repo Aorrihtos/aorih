@@ -1,0 +1,38 @@
+---
+import type { Experience } from '@/domain/experience';
+import ExperienceItem from './ExperienceItem.astro';
+
+type Props = { experiences: Experience[] };
+
+const { experiences } = Astro.props;
+
+// The original layout shows one company logo above the positions held there, so
+// consecutive entries from the same company are rendered as a single block.
+const groups = experiences.reduce<{ company: string; logo?: string; items: Experience[] }[]>(
+  (acc, experience) => {
+    const last = acc.at(-1);
+    if (last?.company === experience.company) {
+      last.items.push(experience);
+      return acc;
+    }
+    return [
+      ...acc,
+      { company: experience.company, logo: experience.companyLogo, items: [experience] },
+    ];
+  },
+  [],
+);
+---
+
+{
+  groups.map((group) => (
+    <div class="background-container">
+      {group.logo && <img src={group.logo} alt={group.company} />}
+      <ul>
+        {group.items.map((experience) => (
+          <ExperienceItem experience={experience} />
+        ))}
+      </ul>
+    </div>
+  ))
+}

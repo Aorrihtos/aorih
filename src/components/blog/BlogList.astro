@@ -1,0 +1,20 @@
+---
+import type { BlogPostSummary } from '@/domain/blog-post';
+import BlogCard from './BlogCard.astro';
+
+type Props = { posts: BlogPostSummary[] };
+
+const { posts } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="empty-state">No entries recorded yet.</p>
+  ) : (
+    <div class="blog-list">
+      {posts.map((post, index) => (
+        <BlogCard post={post} isFirst={index === 0} />
+      ))}
+    </div>
+  )
+}

@@ -1,0 +1,43 @@
+{
+  "name": "aorih",
+  "version": "2.0.0",
+  "description": "Sergio Ferrer's portfolio — Astro + Keystatic",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "astro": "astro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aorrihtos/aorih.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Aorrihtos/aorih/issues"
+  },
+  "homepage": "https://github.com/Aorrihtos/aorih#readme",
+  "dependencies": {
+    "@astrojs/netlify": "^8.2.2",
+    "@astrojs/react": "^6.0.3",
+    "@astrojs/sitemap": "^3.7.3",
+    "@keystatic/astro": "^6.0.0",
+    "@keystatic/core": "^0.6.7",
+    "astro": "^7.2.3",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^5.9.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "esbuild@0.28.2": true,
+    "sharp@0.34.5": true,
+    "sharp@0.35.3": true
+  }
+}

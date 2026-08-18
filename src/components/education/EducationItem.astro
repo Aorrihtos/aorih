@@ -1,0 +1,19 @@
+---
+import type { Education } from '@/domain/education';
+import { formatPeriod } from '@/lib/format-date';
+
+type Props = { education: Education };
+
+const { education } = Astro.props;
+---
+
+<div class="education">
+  {education.logo && <img src={education.logo} alt={education.institution} />}
+  <div class="edu-data">
+    <h3>{education.institution}</h3>
+    <h4>{education.degree}</h4>
+    <h5>{formatPeriod(education.startDate, education.endDate)}</h5>
+    <br />
+    <p>{education.description}</p>
+  </div>
+</div>

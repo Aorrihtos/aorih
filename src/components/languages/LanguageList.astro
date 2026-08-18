@@ -1,0 +1,19 @@
+---
+import type { Language } from '@/domain/language';
+
+type Props = { languages: Language[] };
+
+const { languages } = Astro.props;
+---
+
+<div class="languages">
+  <ul>
+    {
+      languages.map((language) => (
+        <li>
+          <strong>{language.name}: </strong> {language.level}
+        </li>
+      ))
+    }
+  </ul>
+</div>

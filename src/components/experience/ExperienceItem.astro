@@ -1,0 +1,21 @@
+---
+import type { Experience } from '@/domain/experience';
+import { formatPeriod } from '@/lib/format-date';
+
+type Props = { experience: Experience };
+
+const { experience } = Astro.props;
+---
+
+<li>
+  <h3>{experience.position}</h3>
+  <p>{experience.employmentType} ({formatPeriod(experience.startDate, experience.endDate)})</p>
+  {
+    experience.skills.length > 0 && (
+      <p>
+        <strong>Aptitudes:</strong>
+        {` ${experience.skills.join(' - ')}`}
+      </p>
+    )
+  }
+</li>

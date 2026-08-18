@@ -1,0 +1,27 @@
+---
+import type { BlogPostSummary } from '@/domain/blog-post';
+import { formatDay } from '@/lib/format-date';
+
+type Props = { post: BlogPostSummary; isFirst: boolean };
+
+const { post, isFirst } = Astro.props;
+---
+
+<a href={`/blog/${post.slug}`}>
+  <article class:list={['container-mid', 'blog-entry', { 'first-container': isFirst }]}>
+    <h2>{post.title}</h2>
+    <p class="blog-meta">
+      <time datetime={post.publishedAt}>{formatDay(post.publishedAt)}</time>
+    </p>
+    <p>{post.description}</p>
+    {
+      post.tags.length > 0 && (
+        <ul class="blog-tags">
+          {post.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      )
+    }
+  </article>
+</a>

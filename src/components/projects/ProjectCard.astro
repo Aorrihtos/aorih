@@ -1,0 +1,17 @@
+---
+import type { Project } from '@/domain/project';
+
+type Props = { project: Project; isFirst: boolean };
+
+const { project, isFirst } = Astro.props;
+---
+
+<a href={project.url} target="_blank" rel="noopener noreferrer">
+  <div class:list={['container-mid', { 'first-container': isFirst }]}>
+    <h2>{project.title}</h2>
+    <div class="feep-container">
+      <p>{project.description}</p>
+      {project.image && <img src={project.image} alt={project.title} class="project-image" />}
+    </div>
+  </div>
+</a>

@@ -1,0 +1,12 @@
+---
+import type { SocialLink } from '@/domain/social-link';
+import SocialLinkCard from './SocialLinkCard.astro';
+
+type Props = { links: SocialLink[] };
+
+const { links } = Astro.props;
+---
+
+<div class="container-flex first-container">
+  {links.map((link) => <SocialLinkCard link={link} />)}
+</div>
