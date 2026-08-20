@@ -20,6 +20,7 @@ const experience = defineCollection({
     employmentType: z.string(),
     startDate: isoDate,
     endDate: isoDate.optional(),
+    description: z.string().optional(),
     skills: z.array(z.string()).default([]),
   }),
 });

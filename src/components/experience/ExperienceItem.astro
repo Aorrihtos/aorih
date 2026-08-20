@@ -10,9 +10,10 @@ const { experience } = Astro.props;
 <li>
   <h3>{experience.position}</h3>
   <p>{experience.employmentType} ({formatPeriod(experience.startDate, experience.endDate)})</p>
+  {experience.description && <p>{experience.description}</p>}
   {
     experience.skills.length > 0 && (
-      <p>
+      <p class="skills">
         <strong>Aptitudes:</strong>
         {` ${experience.skills.join(' - ')}`}
       </p>

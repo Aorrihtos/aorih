@@ -34,7 +34,9 @@ const [experiences, education, technologies, languages] = await Promise.all([
     <div class="data-container hidden" data-slide>
       <div class="container-mid no-mtop">
         <h2>Background</h2>
-        <ExperienceList experiences={experiences} />
+        <div class="background-scroll">
+          <ExperienceList experiences={experiences} />
+        </div>
       </div>
     </div>
 

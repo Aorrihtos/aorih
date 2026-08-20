@@ -61,6 +61,7 @@ export default config({
         employmentType: fields.text({ label: 'Employment type', validation: { isRequired: true } }),
         startDate: fields.date({ label: 'Start date', validation: { isRequired: true } }),
         endDate: fields.date({ label: 'End date', description: 'Leave empty if current.' }),
+        description: fields.text({ label: 'Description', multiline: true }),
         skills: fields.array(fields.text({ label: 'Skill' }), {
           label: 'Aptitudes',
           itemLabel: (props) => props.value,
