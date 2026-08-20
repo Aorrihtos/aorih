@@ -1,0 +1,12 @@
+position: Tech Lead
+company: ETRA I+D
+companyLogo: /assets/tech-lead/companyLogo.png
+employmentType: Hybrid
+startDate: 2024-11-04
+skills:
+  - Meteor.js
+  - Kubernetes
+  - Go
+  - Cesium
+  - React
+  - Google Cloud
