@@ -61,6 +61,6 @@ const [experiences, education, technologies, languages] = await Promise.all([
   <script>
     import { initDataSlides } from '@/lib/data-slides';
 
-    initDataSlides();
+    document.addEventListener('astro:page-load', initDataSlides);
   </script>
 </BaseLayout>
