@@ -9,15 +9,16 @@ type Props = {
   /** Rendered as `Aorih - {title}`, matching the original page titles. */
   title: string;
   description: string;
+  mainClass?: string;
 };
 
-const { title, description } = Astro.props;
+const { title, description, mainClass } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = `Aorih - ${title}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,11 +43,11 @@ const fullTitle = `Aorih - ${title}`;
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;700&display=swap"
     />
 
-    <ClientRouter />
+    <ClientRouter fallback="swap" />
   </head>
   <body class="crt">
     <Header />
-    <main>
+    <main class:list={[mainClass]}>
       <slot />
     </main>
     <Footer>

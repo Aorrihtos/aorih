@@ -13,6 +13,10 @@
 body {
     background-color: var(--bgColor);
     font-family: var(--primaryFont);
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 h1, h2, h5, a{
@@ -33,20 +37,20 @@ button{
 /* HEADER */
 
 header {
-    position: relative;
     display: flex;
     align-items: end;
     justify-content: center;
     border-bottom: 2px solid var(--lightGreen);
     width: 100%;
-    height: 102px;
+    height: 64px;
     column-gap: 100px;
     flex-wrap: wrap;
+    flex-shrink: 0;
 }
 
 .button {
     padding: 0 40px 0 40px;
-    height: 33px;
+    height: 22px;
     width: 155px;
     background-color: var(--bgColor);
     display: flex;
@@ -59,10 +63,10 @@ header .button:first-child{
 
 .button a{
     font-family: var(--primaryFont);
-    font-size: 40px;
+    font-size: 26px;
     background-color: var(--bgColor);
     color: var(--lightGreen);
-    margin-top: -30px;
+    margin-top: -20px;
     padding-left: 3px;
     padding-right: 3px;
     text-decoration: none;
@@ -91,6 +95,19 @@ header .button:first-child{
     margin-top: 10px;
     padding: 20px 0 20px 0;
   }
+}
+
+/* MAIN */
+
+main {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto;
+    width: 100%;
+}
+
+main.no-scroll {
+    overflow: hidden;
 }
 
 
@@ -292,34 +309,37 @@ header .button:first-child{
   gap: 10px;
   max-height: 45vh;
   overflow-y: auto;
+}
+
+.background-scroll, main{
   scrollbar-width: auto;
   scrollbar-color: var(--lightGreen) var(--bgColor);
 }
 
-.background-scroll::-webkit-scrollbar{
+.background-scroll::-webkit-scrollbar, main::-webkit-scrollbar{
   width: 18px;
 }
 
-.background-scroll::-webkit-scrollbar-track{
+.background-scroll::-webkit-scrollbar-track, main::-webkit-scrollbar-track{
   background: var(--bgColor);
   border: 2px inset var(--darkGreen);
   border-radius: 0;
 }
 
-.background-scroll::-webkit-scrollbar-button{
+.background-scroll::-webkit-scrollbar-button, main::-webkit-scrollbar-button{
   background: var(--lightGreen);
   border: 2px outset var(--lightGreen);
   height: 16px;
   border-radius: 0;
 }
 
-.background-scroll::-webkit-scrollbar-thumb{
+.background-scroll::-webkit-scrollbar-thumb, main::-webkit-scrollbar-thumb{
   background: var(--lightGreen);
   border: 3px outset var(--lightGreen);
   border-radius: 0;
 }
 
-.background-scroll::-webkit-scrollbar-thumb:hover{
+.background-scroll::-webkit-scrollbar-thumb:hover, main::-webkit-scrollbar-thumb:hover{
   background: var(--darkGreen);
   border-color: var(--darkGreen);
 }
@@ -534,22 +554,16 @@ footer{
     flex-direction: column;
     align-items: center;
     flex-wrap: nowrap;
-    position: fixed;
-    bottom: 30px;
+    flex-shrink: 0;
     padding-top: 25px;
+    padding-bottom: 30px;
     margin-top: 10px;
-}
-
-@media (max-width: 850px) {
-  footer{
-    position: unset;
-  }
 }
 
 .footer-bars{
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 100%;
     display: flex;
     gap: 10px;
     justify-content: center;
